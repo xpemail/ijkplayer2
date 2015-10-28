@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
  
 
   s.name         = "ijkplayer2"
-  s.version      = "0.3.1"
+  s.version      = "0.3.2"
   s.summary      = "ijkplayer0.4.1 base on ffmpeg 2.8"
  
 
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   
   s.libraries = 'z' 
   
-  s.source       = { :git => "https://github.com/xpemail/ijkplayer2.git", :tag => "0.3.12"}
+  s.source       = { :git => "https://github.com/xpemail/ijkplayer2.git", :tag => "0.3.2"}
   s.ios.deployment_target = "6.0"  
     
   s.requires_arc = true 
@@ -39,14 +39,14 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'IJKFFMoviePlayerController' do |spec|
-  	 spec.header_mappings_dir = 'ijkplayer2/ios/IJKMediaPlayer'  
+  	 spec.header_mappings_dir = 'ijkplayer/ios/IJKMediaPlayer'
      spec.source_files = "ijkplayer/ios/IJKMediaPlayer/IJKMediaPlayer/IJKMediaPlayer.{h,m}", "ijkplayer/ios/IJKMediaPlayer/IJKMediaPlayer/IJKFFOptions.{h,m}", "ijkplayer/ios/IJKMediaPlayer/IJKMediaPlayer/IJKFFMoviePlayerController.{h,m}", "ijkplayer/ios/IJKMediaPlayer/IJKMediaPlayer/IJKFFMoviePlayerDef.{h,m}"
   
   	 spec.subspec 'ijkmedia' do |asp| 
-  	 	asp.header_mappings_dir = 'ijkplayer2/ijkmedia' 
+  	 	asp.header_mappings_dir = 'ijkplayer/ijkmedia'
   	 	
   	 	asp.subspec 'ijkplayer' do |ijkplayer|
-     		ijkplayer.source_files = "ijkplayer/ijkmedia/ijkplayer2/*.{h,c}"
+     		ijkplayer.source_files = "ijkplayer/ijkmedia/ijkplayer/*.{h,c}"
 
             ijkplayer.subspec 'ijkavformat' do |ijkavformat|
                 ijkavformat.source_files = "ijkplayer/ijkmedia/ijkplayer/ijkavformat/*.{h,c}"
