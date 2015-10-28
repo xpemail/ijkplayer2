@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
  
 
   s.name         = "ijkplayer2"
-  s.version      = "0.3.2"
+  s.version      = "0.3.3"
   s.summary      = "ijkplayer0.4.1 base on ffmpeg 2.8"
  
 
@@ -13,11 +13,11 @@ Pod::Spec.new do |s|
  
   s.author             = { "wuxiande" => "xd.wu@msn.com" } 
   
-  s.frameworks = 'AudioToolbox','MediaPlayer','CoreMedia','AVFoundation','CoreGraphics'
+  s.frameworks = 'AudioToolbox','MediaPlayer','CoreMedia','AVFoundation','CoreGraphics','VideoToolbox'
   
   s.libraries = 'z' 
   
-  s.source       = { :git => "https://github.com/xpemail/ijkplayer2.git", :tag => "0.3.2"}
+  s.source       = { :git => "https://github.com/xpemail/ijkplayer2.git", :tag => "0.3.3"}
   s.ios.deployment_target = "6.0"  
     
   s.requires_arc = true 
