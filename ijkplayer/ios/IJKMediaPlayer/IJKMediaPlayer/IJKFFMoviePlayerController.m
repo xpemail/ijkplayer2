@@ -150,7 +150,6 @@ void IJKFFIOStatCompleteRegister(void (*cb)(const char *url,
  默认（点播）：(15*1024*1024)
  */
 - (id)initWithContentURL:(NSURL *)aUrl
-             withOptions:(IJKFFOptions *)options
        withMaxBufferSize:(int)max_buffer_size
 {
     return [self initWithContentURLString:[aUrl absoluteString]

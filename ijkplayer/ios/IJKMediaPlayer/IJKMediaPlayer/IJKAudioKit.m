@@ -50,7 +50,9 @@
 
     /* Set audio session to mediaplayback */
     NSError *error = nil;
-    if (NO == [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&error]) {
+    //AVAudioSessionCategoryAmbient 共享音频
+//    if (NO == [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&error]) {
+    if (NO == [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:&error]) {//解决音频独占问题
         NSLog(@"IJKAudioKit: AVAudioSession.setCategory() failed: %@\n", error ? [error localizedDescription] : @"nil");
         return;
     }
