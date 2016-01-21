@@ -36,8 +36,8 @@
 {
     IJKFFOptions *options = [[IJKFFOptions alloc] init];
 
-    [options setPlayerOptionIntValue:30     forKey:@"max-fps"];
-    [options setPlayerOptionIntValue:0      forKey:@"framedrop"];
+    [options setPlayerOptionIntValue:35     forKey:@"max-fps"];
+    [options setPlayerOptionIntValue:1      forKey:@"framedrop"];
     [options setPlayerOptionIntValue:3      forKey:@"video-pictq-size"];
     [options setPlayerOptionIntValue:0      forKey:@"videotoolbox"];
     [options setPlayerOptionIntValue:960    forKey:@"videotoolbox-max-frame-width"];
@@ -49,6 +49,15 @@
 
     [options setCodecOptionIntValue:IJK_AVDISCARD_ALL       forKey:@"skip_loop_filter"];
     [options setCodecOptionIntValue:IJK_AVDISCARD_NONREF    forKey:@"skip_frame"];
+    
+    //----set player add by xd.5
+    [options setPlayerOptionIntValue:0 forKey:@"packet-buffering"];
+    [options setPlayerOptionIntValue:5 forKey:@"min-frames"];
+    //下面两个参数由播放类型决定，自行增加。（点播需）
+//        [options setPlayerOptionIntValue:1 forKey:@"an"];//audio disable 禁止音频
+//        [options setPlayerOptionIntValue:(50*1024) forKey:@"max-buffer-size"];//缓存大小（直播小，点播大保证流畅）
+    //----set format add by xd.5
+    [options setFormatOptionIntValue:5 forKey:@"fpsprobesize"];
 
     options.useRenderQueue = NO;
 

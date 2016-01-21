@@ -142,22 +142,6 @@ void IJKFFIOStatCompleteRegister(void (*cb)(const char *url,
     ijkmp_io_stat_complete_register(cb);
 }
 
-/*
- by xd.5
- 使用自定义最大缓冲大小设置
- 建议：
- 直播缓冲大小(0.2*1024*1024)
- 默认（点播）：(15*1024*1024)
- */
-- (id)initWithContentURL:(NSURL *)aUrl
-       withMaxBufferSize:(int)max_buffer_size
-{
-    return [self initWithContentURLString:[aUrl absoluteString]
-                              withOptions:nil
-                      withSegmentResolver:nil
-                        withMaxBufferSize:max_buffer_size];
-}
-
 - (id)initWithContentURL:(NSURL *)aUrl withOptions:(IJKFFOptions *)options
 {
     return [self initWithContentURL:aUrl
@@ -174,13 +158,12 @@ void IJKFFIOStatCompleteRegister(void (*cb)(const char *url,
 
     return [self initWithContentURLString:[aUrl absoluteString]
                               withOptions:options
-                      withSegmentResolver:segmentResolver withMaxBufferSize:MAX_BUFFER_SIZE];
+                      withSegmentResolver:segmentResolver];
 }
 
 - (id)initWithContentURLString:(NSString *)aUrlString
                    withOptions:(IJKFFOptions *)options
            withSegmentResolver:(id<IJKMediaSegmentResolver>)segmentResolver
-             withMaxBufferSize:(int)max_buffer_size
 {
     if (aUrlString == nil)
         return nil;
@@ -192,7 +175,7 @@ void IJKFFIOStatCompleteRegister(void (*cb)(const char *url,
 
         if (options == nil)
             options = [IJKFFOptions optionsByDefault];
-
+        
         // IJKFFIOStatRegister(IJKFFIOStatDebugCallback);
         // IJKFFIOStatCompleteRegister(IJKFFIOStatCompleteDebugCallback);
 
@@ -207,7 +190,7 @@ void IJKFFIOStatCompleteRegister(void (*cb)(const char *url,
         _mediaMeta = [[NSDictionary alloc] init];
 
         // init player
-        _mediaPlayer = ijkmp_ios_create(media_player_msg_loop,max_buffer_size);//自定义缓冲大小 by xd.5
+        _mediaPlayer = ijkmp_ios_create(media_player_msg_loop);
         _msgPool = [[IJKFFMoviePlayerMessagePool alloc] init];
 
         ijkmp_set_weak_thiz(_mediaPlayer, (__bridge_retained void *) self);

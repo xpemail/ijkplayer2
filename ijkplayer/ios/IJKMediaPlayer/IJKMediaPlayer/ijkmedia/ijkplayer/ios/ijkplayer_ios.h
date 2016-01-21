@@ -24,7 +24,7 @@
 #import "IJKSDLGLView.h"
 
 // ref_count is 1 after open
-IjkMediaPlayer *ijkmp_ios_create(int (*msg_loop)(void*), int custom_max_buffer_size);
+IjkMediaPlayer *ijkmp_ios_create(int (*msg_loop)(void*));
 
 void            ijkmp_ios_set_glview(IjkMediaPlayer *mp, IJKSDLGLView *glView);
 bool            ijkmp_ios_is_videotoolbox_open(IjkMediaPlayer *mp);

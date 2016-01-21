@@ -71,16 +71,6 @@ typedef enum IJKLogLevel {
 
 @interface IJKFFMoviePlayerController : NSObject <IJKMediaPlayback>
 
-/*
- by xd.5
- 使用自定义最大缓冲大小设置
- 建议：
- 直播缓冲大小(0.2*1024*1024)
- 默认（点播）：(15*1024*1024)
- */
-- (id)initWithContentURL:(NSURL *)aUrl
-       withMaxBufferSize:(int)max_buffer_size;
-
 - (id)initWithContentURL:(NSURL *)aUrl
              withOptions:(IJKFFOptions *)options;
 
@@ -90,8 +80,7 @@ typedef enum IJKLogLevel {
 
 - (id)initWithContentURLString:(NSString *)aUrlString
                    withOptions:(IJKFFOptions *)options
-           withSegmentResolver:(id<IJKMediaSegmentResolver>)segmentResolver
-           withMaxBufferSize:(int)max_buffer_size;
+           withSegmentResolver:(id<IJKMediaSegmentResolver>)segmentResolver;
 
 
 - (void)prepareToPlay;

@@ -32,7 +32,7 @@
 #include "ijkplayer/pipeline/ffpipeline_ffplay.h"
 #include "pipeline/ffpipeline_ios.h"
 
-IjkMediaPlayer *ijkmp_ios_create(int (*msg_loop)(void*), int custom_max_buffer_size)
+IjkMediaPlayer *ijkmp_ios_create(int (*msg_loop)(void*))
 {
     IjkMediaPlayer *mp = ijkmp_create(msg_loop);
     if (!mp)
@@ -45,8 +45,6 @@ IjkMediaPlayer *ijkmp_ios_create(int (*msg_loop)(void*), int custom_max_buffer_s
     mp->ffplayer->pipeline = ffpipeline_create_from_ios(mp->ffplayer);
     if (!mp->ffplayer->pipeline)
         goto fail;
-    
-    mp->ffplayer->max_buffer_size = custom_max_buffer_size;
 
     return mp;
 
